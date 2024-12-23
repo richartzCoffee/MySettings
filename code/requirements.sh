@@ -2,13 +2,6 @@
 
 source ./uteis.sh
 
-install_vs_code(){
-    wget https://update.code.visualstudio.com/latest/linux-deb-x64/stable -O /tmp/vscode.deb
-    sleep 1
-    sudo apt intall /tmp/vscode.deb
-}
-
-
 install_extension(){
 
     code --install-extension pawelborkar.jellyfish
@@ -22,6 +15,14 @@ install_extension(){
         "workbench.iconTheme": "vscode-icons"
     }' > $HOME/.config/Code/User/settings.json
 
+}
+
+install_vs_code(){
+    wget https://update.code.visualstudio.com/latest/linux-deb-x64/stable -O /tmp/vscode.deb
+    sleep 1
+    sudo apt intall /tmp/vscode.deb
+    sleep 1
+    install_extension
 }
 
 prepare_symbolic_links(){
